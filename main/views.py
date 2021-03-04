@@ -6,3 +6,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 def home(response):
     return render(response, "main/home.html", {})
 
+def logout(request):
+    auth.logout(request)
+    return redirect('home_url')
