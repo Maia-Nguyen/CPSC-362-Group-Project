@@ -4,19 +4,16 @@ from django.contrib import messages
 
 
 # Create your views here.
-def register(request):
-    if request.method == "POST":
-        form = RegisterForm(request.POST)
+def register(response):
+    if response.method == "POST":
+        form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
             return redirect("/home")
         else:
-            messages.error(request, 'Username or Email already in use')
+            messages.error(response, 'Username already in use')
             return redirect("/register")
     else:
         form = RegisterForm()
 
-    return render(request, "register/register.html", {"form":form})
-
-
-    
+    return render(response, "register/register.html", {"form":form})
