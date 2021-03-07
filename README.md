@@ -4,8 +4,8 @@ A website called couchPotato, a television companion app that will remind you wh
 To run this project, in your command prompt:
 ```
 $ mkvirtualenv (name of your virtual environment)
-$ cd ../CPSC-362-Group-Project
-$ pip install Django
-$ pip install Django-crispy-forms
-$ python manage.py runserver
+(venv)$ cd ../CPSC-362-Group-Project
+(venv)$ pip install Django
+(venv)$ pip install Django-crispy-forms
+(venv)$ python manage.py runserver
 ```
