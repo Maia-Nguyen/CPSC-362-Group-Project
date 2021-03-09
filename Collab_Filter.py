@@ -4,11 +4,11 @@
 import numpy as np
 import pandas as pd
 # Load dataset
-data = pd.read_csv('C:/Users/cesma/Desktop/Python_Projects/362_Project/Datasets/tmdb_5000_credits.csv')
+data = pd.read_csv('tmdb_5000_credits.csv')
 data.head()
 
 # Load second dataset
-data2 = pd.read_csv('C:/Users/cesma/Desktop/Python_Projects/362_Project/Datasets/tmdb_5000_movies.csv')
+data2 = pd.read_csv('tmdb_5000_movies.csv')
 data2.head()
 
 # Merges datasets on id column
