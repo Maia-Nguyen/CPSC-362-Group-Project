@@ -15,5 +15,5 @@ With Python installed (See Project Requirements), run the project using:
 * pip install Django-crispy-forms
 * python manage.py runserver
 In your web browser, go to the development server provided.
-* Example: Starting development server at http://127.0.0.1:8000/
-* You would go to http://127.0.0.1:8000/ in your browser
+ * Example: Starting development server at http://127.0.0.1:8000/
+ * You would go to http://127.0.0.1:8000/ in your browser
