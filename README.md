@@ -9,7 +9,7 @@ Make sure Python is included in your System User Variables Path
 ## HOW TO RUN:
 Download https://github.com/Maia-Nguyen/CPSC-362-Group-Project.git to your computer
 In your command prompt:
-cd into the project
+    cd into the project
 With Python installed (See Project Requirements), run the project using:
 * pip install Django
 * pip install Django-crispy-forms
