@@ -4,7 +4,7 @@ A website called couchPotato, a television companion app that will remind you wh
 ### PROJECT REQUIREMENTS:
 Make sure Python is downloaded to your computer and system
 ```
-[Download Python](https://www.python.org/downloads/)
+Download Python at https://www.python.org/downloads/
 ```
 Make sure Python is included in your System User Variables Path
 
