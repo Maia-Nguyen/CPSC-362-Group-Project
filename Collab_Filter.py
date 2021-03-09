@@ -111,91 +111,92 @@ def GetRecommendations(title, cosine_sim = cosine_sim):
 # Add Error Handling
 # Do not let user add duplicates
 #===========================================
-# Main Page 
-import sys
-main = ''
-title = ''
-# userList = ['Inception']
-userList = []
-List = movies_list[['title_x', 'vote_average', 'score']]
-# Work on exit condition
-while True:
-    # Precondition: User's List has to be empty for new user
-    if bool(userList) == False:
-        # First time user is prompted add a movie to their list
-        temp = 0
-        while True:
-            print(f'Select a Movie to begin or type New for more options\n=============================')
-            print(f'Popular Movies:\n\n {List[temp:temp+9].to_string(index=False)}')
-            title = input('\nType in Movie title to add to list: ')
-            # Updates displayed movies
-            if title.lower() == 'new':
-                temp += 10
-            elif title.lower() != 'new' and (data2['title_x']== title).any():
-                userList.append(title)
-                break
-            elif title.lower() == 'exit':
-                raise SystemExit
-    
-    while True:
-        # Precondition: User List has to be filled
-        import random
-        print('========== Main Menu ==========\n==============================\n')  
-        if len(userList) != 0:
-            # Randomly recommends based on list size
-            idx = random.randrange(0, len(userList))
-            print(f'Movies based on your list:\n\n {GetRecommendations(userList[idx]).to_string(index=False)}')
-            # print(f'Movies based on your list:\n\n {GetRecommendations(userList[0]).to_string(index=False)}')
-        else:
-            print(f'Popular Movies: \n {print(List[0:9].to_string(index=False))}')
-        print(f'\nYour Movie List: {userList}\n')
-        print('Type the number of the option')
-        print('1:Search    2:Delete    3:Insert    4:Exit')  
-        main = int(input('$\: '))
-        
-        # Search algorithm with embedded loop
-        if main == 1:
-            while True:
-                title = input('\nType in Movie title: ')
-                user = GetRecommendations(title)
-                print(f'Recommended based on your Search:\n {user.to_string(index=False)}\n')
-                print('Type the number of the option')
-                print('1. Add to list    2. Search  3. Main Menu\n')
-                option = int(input('$\: '))
-                # User adds preferred title to their list
-                if option == 1:
-                    title = input('\nType in Movie title to add to list: ')
-                    # Goes back to main menu if user adds title
-                    if (data2['title_x']== title).any():
-                        userList.append(title)  
-                        break
-                    else:
-                        print('Invalid Title')
-                # Continue searching
-                elif option == 2:
-                    print('...')
-                # Return to Main Menu
-                elif option == 3:
-                    print('Returning...')
-                    break
-        # Delete title from list
-        elif main == 2:
-            print(f'\nYour Movie List: {userList}\n')
-            title = input('Type movie name to delete from list: ')
-            idx = userList.index(title)
-            del userList[idx]
-        # Add title from recommended list
-        elif main == 3:
-            # If list is empty, show popular movies
-            if len(userList) != 0:
-                title = input('\nType in Movie title to add to list: ')
-                if (data2['title_x']== title).any():
-                    userList.append(title) 
-            else:
-                print(f'Empty List... ')
-        # Logout from main menu
-        elif main == 4:
-            print('Logging out...')
-            raise SystemExit
-        else:
-            raise SystemError
+# # Main Page
+# import sys
+# main = ''
+# title = ''
+# # userList = ['Inception']
+# userList = []
+# List = movies_list[['title_x', 'vote_average', 'score']]
+# # Work on exit condition
+# while True:
+#     # Precondition: User's List has to be empty for new user
+#     if bool(userList) == False:
+#         # First time user is prompted add a movie to their list
+#         temp = 0
+#         while True:
+#             print(f'Select a Movie to begin or type New for more options\n=============================')
+#             print(f'Popular Movies:\n\n {List[temp:temp + 9].to_string(index=False)}')
+#             title = input('\nType in Movie title to add to list: ')
+#             # Updates displayed movies
+#             if title.lower() == 'new':
+#                 temp += 10
+#             elif title.lower() != 'new' and (data2['title_x'] == title).any():
+#                 userList.append(title)
+#                 break
+#             elif title.lower() == 'exit':
+#                 raise SystemExit
+#
+#     while True:
+#         # Precondition: User List has to be filled
+#         import random
+#
+#         print('========== Main Menu ==========\n==============================\n')
+#         if len(userList) != 0:
+#             # Randomly recommends based on list size
+#             idx = random.randrange(0, len(userList))
+#             print(f'Movies based on your list:\n\n {GetRecommendations(userList[idx]).to_string(index=False)}')
+#             # print(f'Movies based on your list:\n\n {GetRecommendations(userList[0]).to_string(index=False)}')
+#         else:
+#             print(f'Popular Movies: \n {print(List[0:9].to_string(index=False))}')
+#         print(f'\nYour Movie List: {userList}\n')
+#         print('Type the number of the option')
+#         print('1:Search    2:Delete    3:Insert    4:Exit')
+#         main = int(input('$\: '))
+#
+#         # Search algorithm with embedded loop
+#         if main == 1:
+#             while True:
+#                 title = input('\nType in Movie title: ')
+#                 user = GetRecommendations(title)
+#                 print(f'Recommended based on your Search:\n {user.to_string(index=False)}\n')
+#                 print('Type the number of the option')
+#                 print('1. Add to list    2. Search  3. Main Menu\n')
+#                 option = int(input('$\: '))
+#                 # User adds preferred title to their list
+#                 if option == 1:
+#                     title = input('\nType in Movie title to add to list: ')
+#                     # Goes back to main menu if user adds title
+#                     if (data2['title_x'] == title).any():
+#                         userList.append(title)
+#                         break
+#                     else:
+#                         print('Invalid Title')
+#                 # Continue searching
+#                 elif option == 2:
+#                     print('...')
+#                 # Return to Main Menu
+#                 elif option == 3:
+#                     print('Returning...')
+#                     break
+#         # Delete title from list
+#         elif main == 2:
+#             print(f'\nYour Movie List: {userList}\n')
+#             title = input('Type movie name to delete from list: ')
+#             idx = userList.index(title)
+#             del userList[idx]
+#         # Add title from recommended list
+#         elif main == 3:
+#             # If list is empty, show popular movies
+#             if len(userList) != 0:
+#                 title = input('\nType in Movie title to add to list: ')
+#                 if (data2['title_x'] == title).any():
+#                     userList.append(title)
+#             else:
+#                 print(f'Empty List... ')
+#         # Logout from main menu
+#         elif main == 4:
+#             print('Logging out...')
+#             raise SystemExit
+#         else:
+#             raise SystemError
