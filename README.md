@@ -8,7 +8,7 @@ Download Python at https://www.python.org/downloads/
 ```
 Make sure Python is included in your System User Variables Path
 
-## HOW TO RUN:
+### HOW TO RUN:
 Download https://github.com/Maia-Nguyen/CPSC-362-Group-Project.git to your computer
 
 In your command prompt:
