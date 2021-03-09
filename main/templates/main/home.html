@@ -6,4 +6,86 @@ Home
 
 {% block content %}
 <h1>Home Page</h1>
+<body>
+    <button class="btn-toggle" onclick="clicked()" >Theme</button>
+    <p>Recommend Title</p>
+      <form action="display" method="post">
+        {% csrf_token %}
+        Enter movie title : <input type="text" name="title"><br>
+        <input type="submit">
+      </form>
+</body>
+
+<table id="List" border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Movie Title</th>
+      <th>Vote Average</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>The Shawshank Redemption</td>
+      <td>8.5</td>
+      <td>8.059258</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Fight Club</td>
+      <td>8.3</td>
+      <td>7.939256</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>The Dark Knight</td>
+      <td>8.2</td>
+      <td>7.920020</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Pulp Fiction</td>
+      <td>8.3</td>
+      <td>7.904645</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Inception</td>
+      <td>8.1</td>
+      <td>7.863239</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>The Godfather</td>
+      <td>8.4</td>
+      <td>7.851236</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Interstellar</td>
+      <td>8.1</td>
+      <td>7.809479</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Forrest Gump</td>
+      <td>8.2</td>
+      <td>7.803188</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>The Lord of the Rings: The Return of the King</td>
+      <td>8.1</td>
+      <td>7.727243</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>The Empire Strikes Back</td>
+      <td>8.2</td>
+      <td>7.697884</td>
+    </tr>
+  </tbody>
+</table>
 {% endblock %}
