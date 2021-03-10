@@ -4,6 +4,7 @@ from sklearn.metrics.pairwise import linear_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
 # from django.shortcuts import HttpResponse
 import pandas as pd
+from matplotlib import pyplot as plt
 
 from Collab_Filter import data2, indices, cosine_sim, movies_list
 
@@ -18,7 +19,7 @@ def logout(request, redirect=None, auth=None):
 
 
 def display(request):
-    def rec(title, cosine_sim = cosine_sim):
+    def rec(title, cosine_sim=cosine_sim):
         # Find index of the movie that matches the title
         idx = indices[title]
 
@@ -34,10 +35,13 @@ def display(request):
         # Get movie indices
         movie_indices = [i[0] for i in sim_scores]
 
+        # TRY LOOPING TH OUTPUT
         # Return top 10 most similar movies
         return data2['title_x'].iloc[movie_indices]
 
+    # Try injections with jinja2
     res = request.POST['title']
     val = rec(res)
-
-    return render(request, 'main/display.html', {'result': val})
+    val = val.reset_index()
+    val = val[['title_x']].to_dict()
+    return render(request, 'main/display.html', {'result': sorted(val.items())})
