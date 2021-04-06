@@ -1,12 +1,15 @@
 from django.shortcuts import render
+from .models import MyModel
+from .forms import MyForm
 from django.http import HttpResponse, HttpResponseRedirect
 from sklearn.metrics.pairwise import linear_kernel
 from sklearn.feature_extraction.text import TfidfVectorizer
 # from django.shortcuts import HttpResponse
 import pandas as pd
 from matplotlib import pyplot as plt
-
 from Collab_Filter import data2, indices, cosine_sim, movies_list
+# from tvmaze.api import Api
+# api = Api()
 
 
 def home(response):
@@ -39,9 +42,19 @@ def display(request):
         # Return top 10 most similar movies
         return data2['title_x'].iloc[movie_indices]
 
-    # Try injections with jinja2
+    # Redirects in the display.html page and Outputs the user's recommendations
     res = request.POST['title']
     val = rec(res)
     val = val.reset_index()
     val = val[['title_x']].to_dict()
     return render(request, 'main/display.html', {'result': sorted(val.items())})
+
+
+def my_form(request):
+    if request.method == "POST":
+        form = MyForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = MyForm()
+    return render(request, 'cvForm.html', {'form': form})
