@@ -19,7 +19,7 @@ Home
 
   <form action="display" method="post">
     {% csrf_token %}
-    Enter Movie Title:<input type="text" name="title"><br>
+    Enter Movie Title:<input type="text" name="title" required><br>
     <input class="searchBtn" type="submit" value="See Recommended Titles!">
   </form>
 
