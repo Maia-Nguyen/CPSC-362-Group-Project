@@ -7,7 +7,12 @@ Home
 {% block content %}
 <body>
     <p>Click On The Movie Title To See Recommended Titles</p>
-
+  <!-- Button on the home page to toggle to the profile page -->
+  <!-- <form action="profile" method="post">
+    {% csrf_token %}
+    {{request.user.username}} Profile
+    <input type="submit" name="profile">
+  </form> -->
   <table id="List" border="1" class="dataframe">
     <thead>
       <tr style="text-align: left;">
@@ -140,6 +145,5 @@ Home
       </tr>
     </tbody>
   </table>
-
 </body>
 {% endblock %}
