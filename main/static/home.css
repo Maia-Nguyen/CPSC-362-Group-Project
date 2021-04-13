@@ -9,6 +9,11 @@
     cursor: pointer;
 }
 
+.searchBox {
+    color: black;
+    padding: 5px;
+}
+
 .searchBtn {
     border: none;
     margin: 10px;
