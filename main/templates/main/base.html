@@ -5,7 +5,8 @@
     <head>
         <script src="{% static 'button.js' %} "></script>
         <link rel="stylesheet" href="{% static 'light-theme.css' %}" type="text/css" id="theme-link">
-        <link rel="stylesheet" href="static/home.css">
+        {% block head %}
+        {% endblock %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
         <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
@@ -15,7 +16,7 @@
 
     <body>
         <div class="sidenav">
-            <a href="/">Home</a>
+            <a href="/home">Home</a>
             {% if request.user.is_authenticated %}
                 <p style="color: rgb(206, 206, 206); background-color: transparent; 
                     margin: -5px; margin-top: -15px; font-size: 25px;">

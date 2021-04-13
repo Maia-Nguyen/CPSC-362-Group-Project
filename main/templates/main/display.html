@@ -1,5 +1,10 @@
 {% extends 'main/base.html' %}
 {% block content %}
+
+{% block head %}
+    <link rel="stylesheet" href="static/display.css">
+{% endblock %}
+
 <body>
 <h2>Recommended Titles </h2>
 </body>
@@ -88,10 +93,8 @@
 </table>
 {% endfor %}
 
-
 <form action="home">
-        {% csrf_token %}
-         Return
-        <input type="submit" name="return">
-      </form>
+    {% csrf_token %}
+    <input class="return" type="submit" name="return" value="Return">
+</form>
 {% endblock %}

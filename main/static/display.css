@@ -1,4 +1,4 @@
-.profileBtn {
+.return {
     border: none;
     font-size: large;
     padding-top: 5px;
@@ -9,15 +9,12 @@
     cursor: pointer;
 }
 
-.searchBtn {
-    border: none;
-    margin: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    background-color: rgb(161, 161, 161);
-    color: white;
-    cursor: pointer;
+p {
+    background-color: rgb(115, 151, 180); 
+    font-size: 20px;
+    padding: 10px;
+    color:white;
+    border-radius: 10px;
 }
 
 table {
@@ -35,13 +32,4 @@ th, td {
 
 input {
     color: rgb(70, 131, 180);
-    padding-top: 14px;
-}
-
-p {
-    background-color: rgb(86, 160, 221);
-    font-size: 20px;
-    padding: 10px;
-    color:white;
-    border-radius: 10px;
 }

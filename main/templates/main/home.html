@@ -4,15 +4,25 @@
 Home
 {% endblock %}
 
+{% block head %}
+  <link rel="stylesheet" href="static/home.css">
+{% endblock%}
+
 {% block content %}
 <body>
-    <p>Click On The Movie Title To See Recommended Titles</p>
+    <p>Click On The Movie Title Or Enter Title Into Search Bar To See Recommended Titles</p>
   <!-- Button on the home page to toggle to the profile page -->
-  <!-- <form action="profile" method="post">
+  <form action="profile" method="post">
     {% csrf_token %}
-    {{request.user.username}} Profile
-    <input type="submit" name="profile">
-  </form> -->
+    <input class="profileBtn" type="submit" name="profile" value="{{request.user.username}}'s Profile">
+  </form>
+
+  <form action="display" method="post">
+    {% csrf_token %}
+    Enter Movie Title:<input type="text" name="title"><br>
+    <input class="searchBtn" type="submit" value="See Recommended Titles!">
+  </form>
+
   <table id="List" border="1" class="dataframe">
     <thead>
       <tr style="text-align: left;">
