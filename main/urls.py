@@ -8,10 +8,12 @@ from . import views
 # Goal3: Display Popular movies, Highest grossing, High rated, allow user to refresh
 # Home page also provides the user a personalized recommendation based on their list
 urlpatterns = [
-    #path("my_form", views.my_form, name='form'),
-    path("", views.home, name="home"),
-    path("home/", views.home, name="home"),
+    # Intended Paths: Login <-> (Register if new, or Pass. reset) -> Home <-> (Profile, Search, User Operations, LogOut)
+    path("", views.login, name="login"),
+    # path("", views.my_form, name="form"),
+    path("register/", views.register, name="register"),
+    path("home", views.home, name="home"),
+    path("my_form", views.my_form, name="form"),
     path("display", views.display, name="display"),
-    #path("display/home", views.home, name="return")
-    path('user_profile', views.user_profile, name='user_profile')
+    path("home", views.home, name="return")
 ]

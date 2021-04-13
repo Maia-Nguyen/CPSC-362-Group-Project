@@ -9,3 +9,9 @@ class MyModel(models.Model):
     middle_name = models.CharField(max_length=255)
     age = models.IntegerField(null=False)
     current_status = models.CharField(max_length=100, null=False, default='new')
+
+
+# User List
+
+
+# UI List
