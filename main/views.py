@@ -50,11 +50,23 @@ def display(request):
     return render(request, 'main/display.html', {'result': sorted(val.items())})
 
 
-def my_form(request):
-    if request.method == "POST":
-        form = MyForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = MyForm()
-    return render(request, 'cvForm.html', {'form': form})
+# def my_form(request):
+#     if request.method == "POST":
+#         form = MyForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#         form = MyForm()
+#     return render(request, 'cvForm.html', {'form': form})
+
+def user_profile(request):
+    form = "profile"
+    res =  request.POST[form]
+    # def my_form(request):
+    #     if request.method == "POST":
+    #         form = MyForm(request.POST)
+    #         if form.is_valid():
+    #             form.save()
+    #     else:
+    #         form = MyForm()
+    return render(request, 'user_profile.html', {'user_profile': form})
